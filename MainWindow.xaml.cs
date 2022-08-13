@@ -35,7 +35,9 @@ namespace VRCTextboxOSC
 
             TbxRate.Text = iniData["Settings"]["Rate"];
             CbxModes.SelectedIndex = int.Parse(iniData["Settings"]["Mode"]);
-            rateLimit = int.Parse(iniData["Settings"]["RateLimit"]);
+            
+            rateLimit = int.Parse(iniData["VRCLimits"]["RateLimit"]);
+            TbxMain.MaxLength = int.Parse(iniData["VRCLimits"]["MaxLength"]);
 
             Button_Send.Visibility = Visibility.Hidden;
         }
@@ -67,6 +69,14 @@ namespace VRCTextboxOSC
                     if (CbxModes.SelectedIndex == 0)
                         intervalTimer.Start();
                 }
+
+                LblCharCount.Content = String.Format("{0}/{1}", TbxMain.Text.Length, TbxMain.MaxLength);
+                if (TbxMain.Text.Length >= 120)
+                    LblCharCount.Foreground = new SolidColorBrush(Colors.Red);
+                else if (TbxMain.Text.Length >= 90)
+                    LblCharCount.Foreground = new SolidColorBrush(Colors.Orange);
+                else
+                    LblCharCount.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#666666"));
             }
         }
 
@@ -107,6 +117,7 @@ namespace VRCTextboxOSC
         {
             if (isInitialized)
             {
+                
                 Regex reg = new("[^0-9]");
                 if (reg.IsMatch(TbxRate.Text) && TbxRate.Text.Length != 0)
                 {
