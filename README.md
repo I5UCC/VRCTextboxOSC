@@ -9,4 +9,4 @@ https://user-images.githubusercontent.com/43730681/184509783-82e6fe3a-b6b8-4c1c-
 
 # Requirements
 
-- [.NET 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime)
+- [.NET 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime)
