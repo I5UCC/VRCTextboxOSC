@@ -13,11 +13,11 @@ namespace VRCTextboxOSC
 {
     public partial class MainWindow : Window
     {
-        private Timer timer;
-        private UDPSender OscSender;
+        private Timer intervalTimer;
+        private UDPSender oscSender;
         private bool initialized = false;
         private IniData iniData;
-        private FileIniDataParser parser = new FileIniDataParser();
+        private FileIniDataParser iniParser = new();
         private readonly string CONFIGPATH = "config.ini";
 
         public MainWindow()
@@ -25,15 +25,15 @@ namespace VRCTextboxOSC
             InitializeComponent();
             initialized = true;
 
-            iniData = parser.ReadFile(CONFIGPATH);
+            iniData = iniParser.ReadFile(CONFIGPATH);
 
-            OscSender = new(iniData["Settings"]["IP"], int.Parse(iniData["Settings"]["Port"]));
-            timer = new(double.Parse(iniData["Settings"]["Rate"]));
+            oscSender = new(iniData["Settings"]["IP"], int.Parse(iniData["Settings"]["Port"]));
+            intervalTimer = new(double.Parse(iniData["Settings"]["Rate"]));
             this.TbxRate.Text = iniData["Settings"]["Rate"];
             CbxModes.SelectedIndex = int.Parse(iniData["Settings"]["Mode"]);
             
             Button_Send.Visibility = Visibility.Hidden;
-            timer.Elapsed += Time_Elapsed;
+            intervalTimer.Elapsed += Time_Elapsed;
         }
 
         private void Time_Elapsed(object? s, ElapsedEventArgs e) => SendMessage();
@@ -58,12 +58,12 @@ namespace VRCTextboxOSC
                 }
                 else
                 {
-                    OscSender.Send(new OscMessage("/chatbox/typing", true));
+                    oscSender.Send(new OscMessage("/chatbox/typing", true));
 
                     if (this.CbxModes.SelectedIndex == 0)
                     {
-                        timer.Stop();
-                        timer.Start();
+                        intervalTimer.Stop();
+                        intervalTimer.Start();
                     }
                 }
             }
@@ -81,7 +81,7 @@ namespace VRCTextboxOSC
                 iniData["Settings"]["Rate"] = this.TbxRate.Text;
                 iniData["Settings"]["Mode"] = this.CbxModes.SelectedIndex.ToString();
 
-                timer.Interval = Convert.ToDouble(this.TbxRate.Text);
+                intervalTimer.Interval = Convert.ToDouble(this.TbxRate.Text);
 
                 switch (this.CbxModes.SelectedIndex)
                 {
@@ -131,16 +131,16 @@ namespace VRCTextboxOSC
         {
             this.Dispatcher.Invoke(() =>
             {
-                OscSender.Send(new OscMessage("/chatbox/typing", false));
-                OscSender.Send(new OscMessage("/chatbox/input", TbxMain.Text, true));
-                timer.Stop();
+                oscSender.Send(new OscMessage("/chatbox/typing", false));
+                oscSender.Send(new OscMessage("/chatbox/input", TbxMain.Text, true));
+                intervalTimer.Stop();
             });
         }
 
         private void ClearMessage()
         {
             TbxMain.Text = "";
-            OscSender.Send(new OscMessage("/chatbox/input", "", true));
+            oscSender.Send(new OscMessage("/chatbox/input", "", true));
         }
 
         private void CheckRate()
@@ -159,7 +159,7 @@ namespace VRCTextboxOSC
 
         private void Window_Closed(object s, EventArgs e)
         {
-            parser.WriteFile(CONFIGPATH, iniData);
+            iniParser.WriteFile(CONFIGPATH, iniData);
         }
     }
 }
