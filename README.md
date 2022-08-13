@@ -1,6 +1,6 @@
 # VRCTextboxOSC
 
-An OSC application to Communicate with VRChats new "Text Chatbox" system.
+An OSC application to Communicate with VRChats new "Text Chatbox" system. <br>
 I has two modes:
 1. Auto update as you type (Adjusted to VRCs rate limits)
 2. Manually send by pressing enter or the send button.
