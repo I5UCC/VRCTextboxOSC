@@ -10,14 +10,14 @@
     <Grid ShowGridLines="False" Focusable="True" x:Name="grid" MouseDown="Grid_MouseDown">
         <TextBox x:Name="TbxMain" HorizontalAlignment="Center" VerticalAlignment="Top" TextWrapping="Wrap" Background = "#222222"  Width="620" Height="175" TextChanged="TextBox_TextChanged" BorderThickness="0" MaxLength="144" Foreground="White" FontFamily="Courier New"  FontSize="30" Margin="0,10,0,0" KeyDown="Textbox_KeyDown"/>
         <ComboBox x:Name="CbxModes" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="84,195,0,0" VerticalAlignment="Top" Width="127" Height="27" FontFamily="Courier New" SelectedIndex="0" SelectionChanged="CbxModes_SelectionChanged">
-            <ComboBoxItem Content="Interval"/>
-            <ComboBoxItem Content="Enter/Send"/>
+            <ComboBoxItem Content="Auto Update"/>
+            <ComboBoxItem Content="Manual"/>
         </ComboBox>
         <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Courier New" Content="Mode:" HorizontalAlignment="Left" Margin="15,196,0,0" VerticalAlignment="Top" Height="26" Width="64"/>
         <Button x:Name="Button_Clear" BorderThickness="0" Background="#555555" Foreground="White" Content="Clear" FontSize="18" FontFamily="Courier New" Margin="554,196,15,0" VerticalAlignment="Top" Height="26" Click="Button_Clear_Click"/>
         <Label x:Name="LblRate" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Courier New" Content="Rate:" HorizontalAlignment="Left" Margin="216,196,0,0" VerticalAlignment="Top" Height="26" Width="64"/>
-        <TextBox x:Name="TbxRate" FontFamily="Courier New" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="280,196,0,0" TextWrapping="Wrap" Text="1000" VerticalAlignment="Top" Width="45" Height="26" LostFocus="TbxRate_LostFocus" TextChanged="TbxRate_TextChanged"/>
-        <Label  x:Name="LblMs" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Courier New" Content="ms" HorizontalAlignment="Left" Margin="325,196,0,0" VerticalAlignment="Top" Height="26" Width="155"/>
+        <TextBox x:Name="TbxRate" FontFamily="Courier New" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="280,196,0,0" TextWrapping="Wrap" Text="1300" VerticalAlignment="Top" Width="45" Height="26" LostFocus="TbxRate_LostFocus" TextChanged="TbxRate_TextChanged"/>
+        <Label  x:Name="LblMs" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Courier New" Content="ms" HorizontalAlignment="Left" Margin="325,196,0,0" VerticalAlignment="Top" Height="26" Width="224"/>
         <Button x:Name="Button_Send" BorderThickness="0" Background="#555555" Foreground="White" Content="Send" FontSize="18" FontFamily="Courier New" HorizontalAlignment="Left" Margin="480,196,0,0" VerticalAlignment="Top" Height="26" Width="69" Click="Button_Send_Click" RenderTransformOrigin="0.497,0.528"/>
     </Grid>
 </Window>

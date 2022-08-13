@@ -14,8 +14,9 @@ namespace VRCTextboxOSC
     public partial class MainWindow : Window
     {
         private Timer intervalTimer;
+        private double rateLimit;
         private UDPSender oscSender;
-        private bool initialized = false;
+        private bool isInitialized = false;
         private IniData iniData;
         private FileIniDataParser iniParser = new();
         private readonly string CONFIGPATH = "config.ini";
@@ -23,17 +24,20 @@ namespace VRCTextboxOSC
         public MainWindow()
         {
             InitializeComponent();
-            initialized = true;
+            isInitialized = true;
 
             iniData = iniParser.ReadFile(CONFIGPATH);
 
             oscSender = new(iniData["Settings"]["IP"], int.Parse(iniData["Settings"]["Port"]));
+
             intervalTimer = new(double.Parse(iniData["Settings"]["Rate"]));
+            intervalTimer.Elapsed += Time_Elapsed;
+
             TbxRate.Text = iniData["Settings"]["Rate"];
             CbxModes.SelectedIndex = int.Parse(iniData["Settings"]["Mode"]);
-            
+            rateLimit = int.Parse(iniData["Settings"]["RateLimit"]);
+
             Button_Send.Visibility = Visibility.Hidden;
-            intervalTimer.Elapsed += Time_Elapsed;
         }
 
         private void Time_Elapsed(object? s, ElapsedEventArgs e) => SendMessage();
@@ -50,7 +54,7 @@ namespace VRCTextboxOSC
 
         private void TextBox_TextChanged(object s, TextChangedEventArgs e)
         {
-            if (initialized)
+            if (isInitialized)
             {
                 if (TbxMain.Text.Length == 0)
                 {
@@ -60,30 +64,25 @@ namespace VRCTextboxOSC
                 {
                     oscSender.Send(new OscMessage("/chatbox/typing", true));
 
-                    if (this.CbxModes.SelectedIndex == 0)
-                    {
-                        intervalTimer.Stop();
+                    if (CbxModes.SelectedIndex == 0)
                         intervalTimer.Start();
-                    }
                 }
             }
         }
 
         private void SettingsChanged()
         {
-            if (initialized)
+            if (isInitialized)
             {
                 if (TbxRate.Text == "" || TbxRate.Text == "0")
-                {
                     TbxRate.Text = "1";
-                }
 
                 iniData["Settings"]["Rate"] = TbxRate.Text;
                 iniData["Settings"]["Mode"] = CbxModes.SelectedIndex.ToString();
 
                 intervalTimer.Interval = Convert.ToDouble(TbxRate.Text);
 
-                switch (this.CbxModes.SelectedIndex)
+                switch (CbxModes.SelectedIndex)
                 {
                     case 0:
                         LblMs.Visibility = Visibility.Visible;
@@ -106,7 +105,7 @@ namespace VRCTextboxOSC
 
         private void TbxRate_TextChanged(object s, TextChangedEventArgs e)
         {
-            if (initialized)
+            if (isInitialized)
             {
                 Regex reg = new("[^0-9]");
                 if (reg.IsMatch(TbxRate.Text) && TbxRate.Text.Length != 0)
@@ -115,21 +114,28 @@ namespace VRCTextboxOSC
                     TbxRate.Select(TbxRate.Text.Length, 0);
                 }
 
-                CheckRate();
+                if (TbxRate.Text != "" && Convert.ToInt32(TbxRate.Text) < rateLimit)
+                {
+                    LblMs.Content = String.Format("ms < {0} rate limit.", rateLimit);
+                    LblMs.Foreground = new SolidColorBrush(Colors.Red);
+                }
+                else
+                {
+                    LblMs.Content = "ms";
+                    LblMs.Foreground = new SolidColorBrush(Colors.White);
+                }
             }
         }
 
         private void Textbox_KeyDown(object s, KeyEventArgs e)
         {
             if (e.Key == Key.Enter && CbxModes.SelectedIndex == 1)
-            {
                 SendMessage();
-            }
         }
 
         private void SendMessage() 
         {
-            this.Dispatcher.Invoke(() =>
+            Dispatcher.Invoke(() =>
             {
                 oscSender.Send(new OscMessage("/chatbox/typing", false));
                 oscSender.Send(new OscMessage("/chatbox/input", TbxMain.Text, true));
@@ -141,25 +147,10 @@ namespace VRCTextboxOSC
         {
             TbxMain.Text = "";
             oscSender.Send(new OscMessage("/chatbox/input", "", true));
+            oscSender.Send(new OscMessage("/chatbox/typing", false));
+            intervalTimer.Stop();
         }
 
-        private void CheckRate()
-        {
-            if (TbxRate.Text != "" && Convert.ToInt32(TbxRate.Text) < 1000)
-            {
-                LblMs.Content = "ms (Could break)";
-                LblMs.Foreground = new SolidColorBrush(Colors.Red);
-            }
-            else
-            {
-                LblMs.Content = "ms";
-                LblMs.Foreground = new SolidColorBrush(Colors.White);
-            }
-        }
-
-        private void Window_Closed(object s, EventArgs e)
-        {
-            iniParser.WriteFile(CONFIGPATH, iniData);
-        }
+        private void Window_Closed(object s, EventArgs e) => iniParser.WriteFile(CONFIGPATH, iniData);
     }
 }
