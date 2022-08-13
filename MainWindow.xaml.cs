@@ -29,7 +29,7 @@ namespace VRCTextboxOSC
 
             oscSender = new(iniData["Settings"]["IP"], int.Parse(iniData["Settings"]["Port"]));
             intervalTimer = new(double.Parse(iniData["Settings"]["Rate"]));
-            this.TbxRate.Text = iniData["Settings"]["Rate"];
+            TbxRate.Text = iniData["Settings"]["Rate"];
             CbxModes.SelectedIndex = int.Parse(iniData["Settings"]["Mode"]);
             
             Button_Send.Visibility = Visibility.Hidden;
@@ -73,15 +73,15 @@ namespace VRCTextboxOSC
         {
             if (initialized)
             {
-                if (this.TbxRate.Text == "" || this.TbxRate.Text == "0")
+                if (TbxRate.Text == "" || TbxRate.Text == "0")
                 {
-                    this.TbxRate.Text = "1";
+                    TbxRate.Text = "1";
                 }
 
-                iniData["Settings"]["Rate"] = this.TbxRate.Text;
-                iniData["Settings"]["Mode"] = this.CbxModes.SelectedIndex.ToString();
+                iniData["Settings"]["Rate"] = TbxRate.Text;
+                iniData["Settings"]["Mode"] = CbxModes.SelectedIndex.ToString();
 
-                intervalTimer.Interval = Convert.ToDouble(this.TbxRate.Text);
+                intervalTimer.Interval = Convert.ToDouble(TbxRate.Text);
 
                 switch (this.CbxModes.SelectedIndex)
                 {
@@ -89,13 +89,13 @@ namespace VRCTextboxOSC
                         LblMs.Visibility = Visibility.Visible;
                         LblRate.Visibility = Visibility.Visible;
                         TbxRate.Visibility = Visibility.Visible;
-                        this.Button_Send.Visibility = Visibility.Hidden;
+                        Button_Send.Visibility = Visibility.Hidden;
                         break;
                     case 1:
                         LblMs.Visibility = Visibility.Hidden;
                         LblRate.Visibility = Visibility.Hidden;
                         TbxRate.Visibility = Visibility.Hidden;
-                        this.Button_Send.Visibility = Visibility.Visible;
+                        Button_Send.Visibility = Visibility.Visible;
                         break;
                     default:
                         MessageBox.Show("HUH HOW DID YOU DO THAT?!?!?");
@@ -109,10 +109,10 @@ namespace VRCTextboxOSC
             if (initialized)
             {
                 Regex reg = new("[^0-9]");
-                if (reg.IsMatch(this.TbxRate.Text) && this.TbxRate.Text.Length != 0)
+                if (reg.IsMatch(TbxRate.Text) && TbxRate.Text.Length != 0)
                 {
-                    this.TbxRate.Text = this.TbxRate.Text.Remove(this.TbxRate.Text.Length - 1);
-                    this.TbxRate.Select(this.TbxRate.Text.Length, 0);
+                    TbxRate.Text = TbxRate.Text.Remove(TbxRate.Text.Length - 1);
+                    TbxRate.Select(TbxRate.Text.Length, 0);
                 }
 
                 CheckRate();
@@ -121,7 +121,7 @@ namespace VRCTextboxOSC
 
         private void Textbox_KeyDown(object s, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter && this.CbxModes.SelectedIndex == 1)
+            if (e.Key == Key.Enter && CbxModes.SelectedIndex == 1)
             {
                 SendMessage();
             }
@@ -145,7 +145,7 @@ namespace VRCTextboxOSC
 
         private void CheckRate()
         {
-            if (this.TbxRate.Text != "" && Convert.ToInt32(this.TbxRate.Text) < 1000)
+            if (TbxRate.Text != "" && Convert.ToInt32(TbxRate.Text) < 1000)
             {
                 LblMs.Content = "ms (Could break)";
                 LblMs.Foreground = new SolidColorBrush(Colors.Red);
