@@ -7,6 +7,8 @@ I has two modes:
   - Continuous Writing: When the maximum Character limit is reached it removes the first word so you can continue typing.
 - Manually send by pressing enter or the send button.
 
+# [Download here](https://github.com/I5UCC/VRCTextboxOSC/releases/download/v0.1.1/VRCTextboxOSCv0.1.1.zip)
+
 # Showcase
 
 https://user-images.githubusercontent.com/43730681/184694019-4a272780-5bba-40a5-835e-1b62ce395943.mp4
