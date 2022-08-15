@@ -7,7 +7,11 @@ I has two modes:
 
 # Showcase
 
-https://user-images.githubusercontent.com/43730681/184509783-82e6fe3a-b6b8-4c1c-aa31-75902e6f7d93.mp4
+
+
+https://user-images.githubusercontent.com/43730681/184694019-4a272780-5bba-40a5-835e-1b62ce395943.mp4
+
+
 
 ## How to use
 
