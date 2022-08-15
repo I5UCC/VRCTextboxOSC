@@ -66,6 +66,11 @@ namespace VRCTextboxOSC
                 TbxMain.Text = String.Empty;
                 isEnabled = true;
             }
+            else if (e.Key == Key.Enter && CbxModes.SelectedIndex == 0)
+            {
+                SendMessage();
+                ClearMessage();
+            }
         }
 
         private void SendMessage()
