@@ -144,7 +144,7 @@ namespace VRCTextboxOSC
                     Button_Send.Visibility = Visibility.Hidden;
                     break;
                 case 1:
-                    LblCharCount.Visibility = Visibility.Hidden;
+                    LblCharCount.Visibility = Visibility.Visible;
                     CkbxOverflow.Visibility = Visibility.Hidden;
                     Button_Send.Visibility = Visibility.Visible;
                     break;
