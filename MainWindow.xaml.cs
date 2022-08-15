@@ -14,7 +14,7 @@ namespace VRCTextboxOSC
     {
         private Timer intervalTimer;
         private UDPSender oscSender;
-        private bool isInitialized = false;
+        private bool isEnabled = false;
         private IniData iniData;
         private FileIniDataParser iniParser = new();
         private readonly string CONFIGPATH = "config.ini";
@@ -22,7 +22,7 @@ namespace VRCTextboxOSC
         public MainWindow()
         {
             InitializeComponent();
-            isInitialized = true;
+            isEnabled = true;
 
             iniData = iniParser.ReadFile(CONFIGPATH);
 
@@ -46,7 +46,9 @@ namespace VRCTextboxOSC
         private void Button_Send_Click(object s, RoutedEventArgs e)
         {
             SendMessage();
+            isEnabled = false;
             TbxMain.Text = String.Empty;
+            isEnabled = true;
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e) => SettingsChanged();
@@ -60,7 +62,9 @@ namespace VRCTextboxOSC
             if (e.Key == Key.Enter && CbxModes.SelectedIndex == 1)
             {
                 SendMessage();
+                isEnabled = false;
                 TbxMain.Text = String.Empty;
+                isEnabled = true;
             }
         }
 
@@ -84,7 +88,7 @@ namespace VRCTextboxOSC
 
         private void TbxMain_TextChanged(object s, TextChangedEventArgs e)
         {
-            if (!isInitialized)
+            if (!isEnabled)
                 return;
 
             if (TbxMain.MaxLength == TbxMain.Text.Length && CkbxOverflow.IsChecked != null && (bool)CkbxOverflow.IsChecked)
@@ -122,7 +126,7 @@ namespace VRCTextboxOSC
 
         private void SettingsChanged()
         {
-            if (!isInitialized)
+            if (!isEnabled)
                 return;
 
             if (CkbxOverflow.IsChecked != null && (bool)CkbxOverflow.IsChecked)
