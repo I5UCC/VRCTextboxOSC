@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,6 +26,7 @@ namespace VRCTextboxOSC
 
             iniData = iniParser.ReadFile(CONFIGPATH);
 
+            LblStatus.Content = String.Format("Sending to {0}:{1}", iniData["Settings"]["IP"], iniData["Settings"]["Port"]);
             oscSender = new(iniData["Settings"]["IP"], int.Parse(iniData["Settings"]["Port"]));
 
             intervalTimer = new(double.Parse(iniData["Settings"]["Rate"]));

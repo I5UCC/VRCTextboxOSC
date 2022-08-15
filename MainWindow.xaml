@@ -18,7 +18,7 @@
         <Button x:Name="Button_Send" BorderThickness="0" Background="#555555" Foreground="White" Content="Send" FontSize="18" FontFamily="Courier New" HorizontalAlignment="Left" Margin="480,208,0,0" VerticalAlignment="Top" Height="26" Width="69" Click="Button_Send_Click" RenderTransformOrigin="0.497,0.528"/>
         <Label x:Name="LblCharCount" Content="0/144" Foreground="#666666"  HorizontalContentAlignment="Right" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="554,175,0,0" VerticalAlignment="Top" Height="28" FontSize="10" Width="75"/>
         <CheckBox x:Name="CkbxOverflow" Content="Continuous writing" HorizontalAlignment="Left" Margin="226,208,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Courier New" HorizontalContentAlignment="Left" Height="25" Width="186" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
-        <Label x:Name="LblStatus" Content="Sending to 127.0.0.1:9000" Foreground="#777777"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="3,-2,0,0" VerticalAlignment="Top" Height="28" FontSize="10" Width="133"/>
+        <Label x:Name="LblStatus" Content="Sending to" Foreground="#777777"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="3,-2,0,0" VerticalAlignment="Top" Height="28" FontSize="10" Width="632"/>
     </Grid>
 </Window>
     
