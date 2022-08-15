@@ -2,16 +2,14 @@
 
 An OSC application to communicate with VRChats new "Text Chatbox" system. This can directly replace the in game Keyboard for the Chat box and update it in real time! (With a bit of a delay tho) <br><br>
 I has two modes:
-1. Auto update as you type (Adjusted to VRCs rate limits)
+1. Auto update 
+ - Continuosly Updates the textbox with your written text. Pressing enter clears the Chatbox.
+ - Continuous Writing: When the maximum Character limit is reached it removes the first word so you can continue typing.
 2. Manually send by pressing enter or the send button.
 
 # Showcase
 
-
-
 https://user-images.githubusercontent.com/43730681/184694019-4a272780-5bba-40a5-835e-1b62ce395943.mp4
-
-
 
 ## How to use
 
