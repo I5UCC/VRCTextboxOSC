@@ -45,6 +45,12 @@ namespace VRCTextboxOSC
 
         private void Window_Closed(object s, EventArgs e) => iniParser.WriteFile(CONFIGPATH, iniData);
 
+        private void CheckBox_Checked(object sender, RoutedEventArgs e) => SettingsChanged();
+
+        private void CbxModes_SelectionChanged(object s, SelectionChangedEventArgs e) => SettingsChanged();
+
+        private void Button_Clear_Click(object s, RoutedEventArgs e) => ClearMessage();
+
         private void Time_Elapsed(object? s, ElapsedEventArgs e) => SendMessage();
 
         private void Button_Send_Click(object s, RoutedEventArgs e)
@@ -54,12 +60,6 @@ namespace VRCTextboxOSC
             TbxMain.Clear();
             isEnabled = true;
         }
-
-        private void CheckBox_Checked(object sender, RoutedEventArgs e) => SettingsChanged();
-
-        private void CbxModes_SelectionChanged(object s, SelectionChangedEventArgs e) => SettingsChanged();
-
-        private void Button_Clear_Click(object s, RoutedEventArgs e) => ClearMessage();
 
         private void Textbox_KeyDown(object s, KeyEventArgs e)
         {
