@@ -12,11 +12,14 @@ namespace VRCTextboxOSC
 {
     public partial class MainWindow : Window
     {
-        private Timer intervalTimer;
         private UDPSender oscSender;
-        private bool isEnabled = false;
+        private Timer intervalTimer;
+        
+        private FileIniDataParser iniParser;
         private IniData iniData;
-        private FileIniDataParser iniParser = new();
+
+        private bool isEnabled;
+
         private readonly string CONFIGPATH = "config.ini";
 
         public MainWindow()
@@ -24,6 +27,7 @@ namespace VRCTextboxOSC
             InitializeComponent();
             isEnabled = true;
 
+            iniParser = new();
             iniData = iniParser.ReadFile(CONFIGPATH);
 
             LblStatus.Content = String.Format("Sending to {0}:{1}", iniData["Settings"]["IP"], iniData["Settings"]["Port"]);
