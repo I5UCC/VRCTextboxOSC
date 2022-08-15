@@ -67,6 +67,8 @@ namespace VRCTextboxOSC
                 if (clear)
                     TbxMain.Text = String.Empty;
             });
+
+
         }
 
         private void ClearMessage()
