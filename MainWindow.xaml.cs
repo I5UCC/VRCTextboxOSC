@@ -41,9 +41,13 @@ namespace VRCTextboxOSC
 
         private void Window_Closed(object s, EventArgs e) => iniParser.WriteFile(CONFIGPATH, iniData);
 
-        private void Time_Elapsed(object? s, ElapsedEventArgs e) => SendMessage(false);
+        private void Time_Elapsed(object? s, ElapsedEventArgs e) => SendMessage();
 
-        private void Button_Send_Click(object s, RoutedEventArgs e) => SendMessage(true);
+        private void Button_Send_Click(object s, RoutedEventArgs e)
+        {
+            SendMessage();
+            TbxMain.Text = String.Empty;
+        }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e) => SettingsChanged();
 
@@ -54,21 +58,20 @@ namespace VRCTextboxOSC
         private void Textbox_KeyDown(object s, KeyEventArgs e)
         {
             if (e.Key == Key.Enter && CbxModes.SelectedIndex == 1)
-                SendMessage(true);
+            {
+                SendMessage();
+                TbxMain.Text = String.Empty;
+            }
         }
 
-        private void SendMessage(bool clear)
+        private void SendMessage()
         {
             Dispatcher.Invoke(() =>
             {
                 oscSender.Send(new OscMessage("/chatbox/typing", false));
                 oscSender.Send(new OscMessage("/chatbox/input", TbxMain.Text, true));
                 intervalTimer.Stop();
-                if (clear)
-                    TbxMain.Text = String.Empty;
             });
-
-
         }
 
         private void ClearMessage()
