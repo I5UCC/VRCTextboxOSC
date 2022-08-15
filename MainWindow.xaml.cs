@@ -47,7 +47,7 @@ namespace VRCTextboxOSC
         {
             SendMessage();
             isEnabled = false;
-            TbxMain.Text = String.Empty;
+            TbxMain.Clear();
             isEnabled = true;
         }
 
@@ -63,7 +63,7 @@ namespace VRCTextboxOSC
             {
                 SendMessage();
                 isEnabled = false;
-                TbxMain.Text = String.Empty;
+                TbxMain.Clear();
                 isEnabled = true;
             }
             else if (e.Key == Key.Enter && CbxModes.SelectedIndex == 0)
@@ -85,7 +85,7 @@ namespace VRCTextboxOSC
 
         private void ClearMessage()
         {
-            TbxMain.Text = String.Empty;
+            TbxMain.Clear();
             oscSender.Send(new OscMessage("/chatbox/input", String.Empty, true));
             oscSender.Send(new OscMessage("/chatbox/typing", false));
             intervalTimer.Stop();
