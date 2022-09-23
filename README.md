@@ -7,6 +7,10 @@ I has two modes:
   - Continuous Writing: When the maximum Character limit is reached it removes the first word so you can continue typing.
 - Manually send by pressing enter or the send button.
 
+NEW: 
+  - Added "Set Window Always on top" mode,
+  This is useful for _Desktop Users_ who want to keep the textbox app window ontop of all other apps.
+
 # [Download here](https://github.com/I5UCC/VRCTextboxOSC/releases/download/v0.1.1/VRCTextboxOSCv0.1.1.zip)
 
 # Showcase
