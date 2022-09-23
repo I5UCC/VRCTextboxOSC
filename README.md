@@ -11,6 +11,8 @@ NEW:
   - Added "Set Window Always on top" mode,
   This is useful for _Desktop Users_ who want to keep the textbox app window ontop of all other apps.
 
+![always on top mode](https://user-images.githubusercontent.com/40323669/192068312-19d3b1f2-895a-4ed5-b1e5-a0627c1c7520.png)
+
 # [Download here](https://github.com/I5UCC/VRCTextboxOSC/releases/download/v0.1.1/VRCTextboxOSCv0.1.1.zip)
 
 # Showcase
@@ -29,3 +31,4 @@ Then just run the ```VRCTextboxOSC.exe``` and you are all set! <br/>
 # Requirements
 
 - [.NET 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime)
+
