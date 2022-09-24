@@ -1,0 +1,18 @@
+{
+	"source": "builtin",
+	"applications": [
+		{
+			"app_key": "i5ucc.TextboxOSC",
+			"launch_type": "binary",
+			"binary_path_windows": "./VRCTextboxOSC.exe",
+			"is_dashboard_overlay": true,
+
+			"strings": {
+				"en_us": {
+					"name": "VRCTextboxOSC",
+					"description": "OSC Textbox for VRChat."
+				}
+			}
+		}
+	]
+}

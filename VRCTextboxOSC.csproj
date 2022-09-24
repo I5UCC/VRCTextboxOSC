@@ -18,6 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="app.vrmanifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="config.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
