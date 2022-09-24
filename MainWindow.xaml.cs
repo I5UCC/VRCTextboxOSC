@@ -7,6 +7,7 @@ using System.Windows.Media;
 using SharpOSC;
 using IniParser;
 using IniParser.Model;
+using Valve.VR;
 
 namespace VRCTextboxOSC
 {
@@ -25,6 +26,9 @@ namespace VRCTextboxOSC
         public MainWindow()
         {
             InitializeComponent();
+            var err = EVRInitError.None;
+            OpenVR.Init(ref err, EVRApplicationType.VRApplication_Utility);
+            OpenVR.Applications.AddApplicationManifest("app.vrmanifest", false);
             isEnabled = true;
 
             iniParser = new();
