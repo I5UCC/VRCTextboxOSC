@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
@@ -137,6 +137,17 @@ namespace VRCTextboxOSC
         {
             if (!isEnabled)
                 return;
+
+            if (alwaysontop_toggle.IsChecked != null && (bool)alwaysontop_toggle.IsChecked)
+            {
+                Window parent = Window.GetWindow(this);
+                parent.Topmost = true;
+            }
+            else
+            {
+                Window parent = Window.GetWindow(this);
+                parent.Topmost = false;
+            }
 
             if (CkbxOverflow.IsChecked != null && (bool)CkbxOverflow.IsChecked)
             {
