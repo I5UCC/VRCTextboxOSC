@@ -20,6 +20,7 @@
         <CheckBox x:Name="CkbxOverflow" Content="Continuous writing" HorizontalAlignment="Left" Margin="226,208,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Courier New" HorizontalContentAlignment="Left" Height="25" Width="186" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
         <Label x:Name="LblStatus" Content="Sending to" Foreground="#777777"  HorizontalContentAlignment="Left" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="3,-2,0,0" VerticalAlignment="Top" Height="28" FontSize="10" Width="632"/>
         <CheckBox x:Name="alwaysontop_toggle" Content="Always On Top" HorizontalAlignment="Left" Margin="480,0,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Foreground="White" FontSize="15" FontFamily="Courier New" HorizontalContentAlignment="Right" Height="24" Width="142" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
+        <Label Content="Press Alt-A To Focus on this APP" Foreground="#FFFFFF" FontSize="14" HorizontalAlignment="Left" Margin="205,-4,0,0" VerticalAlignment="Top" Height="34" Width="217"/>
     </Grid>
 </Window>
     
