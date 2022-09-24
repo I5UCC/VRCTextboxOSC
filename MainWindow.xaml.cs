@@ -40,6 +40,8 @@ namespace VRCTextboxOSC
             
             CkbxOverflow.IsChecked = bool.Parse(iniData["Settings"]["Continuous"]);
 
+            alwaysontop_toggle.IsChecked = bool.Parse(iniData["Settings"]["AlwaysOnTop"]);
+
             SettingsChanged();
         }
 
@@ -142,11 +144,13 @@ namespace VRCTextboxOSC
             {
                 Window parent = Window.GetWindow(this);
                 parent.Topmost = true;
+                iniData["Settings"]["AlwaysOnTop"] = "true";
             }
             else
             {
                 Window parent = Window.GetWindow(this);
                 parent.Topmost = false;
+                iniData["Settings"]["AlwaysOnTop"] = "false";
             }
 
             if (CkbxOverflow.IsChecked != null && (bool)CkbxOverflow.IsChecked)
