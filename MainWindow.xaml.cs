@@ -9,7 +9,6 @@ using IniParser;
 using IniParser.Model;
 using Valve.VR;
 using NHotkey.Wpf;  // hotkey window focusing feature. thanks to 753 ( https://753.network/ ) for sharing this trick :)
-//this needs a library called: "NHotkey.Wpf". if you using Microsoft Visual Studio 2022, you can add it to your project from the NuGet Package Manager.
 
 namespace VRCTextboxOSC
 {

@@ -5,10 +5,16 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>VRCTextboxOSC.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="VRCTextboxOSC.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ini-parser" Version="2.5.2" />
+    <PackageReference Include="NHotkey.Wpf" Version="2.1.0" />
     <PackageReference Include="OVRSharp" Version="1.2.0" />
   </ItemGroup>
 
