@@ -15,8 +15,8 @@ NEW:
 ![newfeatureupdated](https://user-images.githubusercontent.com/40323669/192115676-d9f59c3e-021d-4307-8157-3326d3d1a048.png)
 
 # Download here
-# [VRCTextboxOSC v0.1.1 beta (NEWEST)](https://github.com/I5UCC/VRCTextboxOSC/files/9639468/VRCTextboxOSCv0.1.1beta.zip)
-# [VRCTextboxOSC v0.1.1 stable](https://github.com/I5UCC/VRCTextboxOSC/releases/download/v0.1.1/VRCTextboxOSCv0.1.1.zip)
+# [VRCTextboxOSC v0.1.3 beta (NEWEST)](https://github.com/I5UCC/VRCTextboxOSC/releases/download/v0.1.3/VRCTextboxOSCv0.1.3_beta.zip)
+# [VRCTextboxOSC v0.1.2 stable](https://github.com/I5UCC/VRCTextboxOSC/releases/download/v0.1.2/VRCTextboxOSCv0.1.2.zip)
 
 # Showcase
 
