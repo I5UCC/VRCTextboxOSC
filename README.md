@@ -8,12 +8,15 @@ I has two modes:
 - Manually send by pressing enter or the send button.
 
 NEW: 
+  - Added Window focus feature, press Alt+A to focus your keyboard and mouse from VRChat to VRCTextboxOSC
   - Added "Set Window Always on top" mode,
   This is useful for _Desktop Users_ who want to keep the textbox app window ontop of all other apps.
 
-![always on top mode](https://user-images.githubusercontent.com/40323669/192068312-19d3b1f2-895a-4ed5-b1e5-a0627c1c7520.png)
+![newfeatureupdated](https://user-images.githubusercontent.com/40323669/192115676-d9f59c3e-021d-4307-8157-3326d3d1a048.png)
 
-# [Download here](https://github.com/I5UCC/VRCTextboxOSC/releases/download/v0.1.1/VRCTextboxOSCv0.1.1.zip)
+# Download here
+# [VRCTextboxOSC v0.1.1 beta (NEWEST)](https://github.com/I5UCC/VRCTextboxOSC/files/9639468/VRCTextboxOSCv0.1.1beta.zip)
+# [VRCTextboxOSC v0.1.1 stable](https://github.com/I5UCC/VRCTextboxOSC/releases/download/v0.1.1/VRCTextboxOSCv0.1.1.zip)
 
 # Showcase
 
@@ -31,4 +34,5 @@ Then just run the ```VRCTextboxOSC.exe``` and you are all set! <br/>
 # Requirements
 
 - [.NET 6 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime)
+
 

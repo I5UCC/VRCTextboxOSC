@@ -8,6 +8,8 @@ using SharpOSC;
 using IniParser;
 using IniParser.Model;
 using Valve.VR;
+using NHotkey.Wpf;  // hotkey window focusing feature. thanks to 753 ( https://753.network/ ) for sharing this trick :)
+//this needs a library called: "NHotkey.Wpf". if you using Microsoft Visual Studio 2022, you can add it to your project from the NuGet Package Manager.
 
 namespace VRCTextboxOSC
 {
@@ -30,6 +32,8 @@ namespace VRCTextboxOSC
             OpenVR.Init(ref err, EVRApplicationType.VRApplication_Utility);
             OpenVR.Applications.AddApplicationManifest("app.vrmanifest", false);
             isEnabled = true;
+            
+            HotkeyManager.Current.AddOrReplace("FocusHotkey", Key.A, ModifierKeys.Alt, FocusHotkey); // hotkey window focusing feature.
 
             iniParser = new();
             iniData = iniParser.ReadFile(CONFIGPATH);
@@ -50,6 +54,14 @@ namespace VRCTextboxOSC
         }
 
         private void Window_Closed(object s, EventArgs e) => iniParser.WriteFile(CONFIGPATH, iniData);
+        
+        // hotkey window focusing feature.
+        // Make Windows focus on this application when a hotkey is pressed
+        private void FocusHotkey(object sender, EventArgs e)
+        {
+            Activate();
+            Focus();
+        }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e) => SettingsChanged();
 
