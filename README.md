@@ -27,7 +27,6 @@ NEW:
 
   - ## <a href="https://github.com/I5UCC/VRCTextboxOSC/releases/download/v0.1.3/VRCTextboxOSCv0.1.3_beta.zip">VRCTextboxOSC v0.1.3 beta (NEWEST)</a>
   - ## <a href="https://github.com/I5UCC/VRCTextboxOSC/releases/download/v0.1.2/VRCTextboxOSCv0.1.2.zip">VRCTextboxOSC v0.1.2 stable</a>
-<br>
 
 # Showcase
 
