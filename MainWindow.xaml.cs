@@ -76,6 +76,7 @@ namespace VRCTextboxOSC
             isEnabled = false;
             TbxMain.Clear();
             isEnabled = true;
+            TbxMain.Focus();
         }
 
         private void Textbox_KeyDown(object s, KeyEventArgs e)
@@ -110,6 +111,7 @@ namespace VRCTextboxOSC
             oscSender.Send(new OscMessage("/chatbox/input", String.Empty, true));
             oscSender.Send(new OscMessage("/chatbox/typing", false));
             intervalTimer.Stop();
+            TbxMain.Focus();
         }
 
         private void TbxMain_TextChanged(object s, TextChangedEventArgs e)
