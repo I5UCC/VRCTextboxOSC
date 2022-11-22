@@ -28,10 +28,11 @@ namespace VRCTextboxOSC
         public MainWindow()
         {
             InitializeComponent();
-            var err = EVRInitError.None;
-            OpenVR.Init(ref err, EVRApplicationType.VRApplication_Utility);
+
             try
             {
+                var err = EVRInitError.None;
+                OpenVR.Init(ref err, EVRApplicationType.VRApplication_Utility);
                 OpenVR.Applications.AddApplicationManifest(Path.GetFullPath("./app.vrmanifest"), false);
             }
             catch (Exception) { }
