@@ -9,6 +9,7 @@ using IniParser;
 using IniParser.Model;
 using Valve.VR;
 using NHotkey.Wpf;  // hotkey window focusing feature. thanks to 753 ( https://753.network/ ) for sharing this trick :)
+using System.IO;
 
 namespace VRCTextboxOSC
 {
@@ -29,7 +30,12 @@ namespace VRCTextboxOSC
             InitializeComponent();
             var err = EVRInitError.None;
             OpenVR.Init(ref err, EVRApplicationType.VRApplication_Utility);
-            OpenVR.Applications.AddApplicationManifest("app.vrmanifest", false);
+            try
+            {
+                OpenVR.Applications.AddApplicationManifest(Path.GetFullPath("./app.vrmanifest"), false);
+            }
+            catch (Exception) { }
+
             isEnabled = true;
             
             HotkeyManager.Current.AddOrReplace("FocusHotkey", Key.A, ModifierKeys.Alt, FocusHotkey); // hotkey window focusing feature.
