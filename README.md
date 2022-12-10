@@ -12,9 +12,8 @@ I has two modes:
   - Continuous Writing: When the maximum Character limit is reached it removes the first word so you can continue typing.
 - Manually send by pressing enter or the send button.
 
-NEW: 
-  - Added Window focus feature, press Alt+A to focus your keyboard and mouse from VRChat to VRCTextboxOSC
-  - Added "Set Window Always on top" mode,
+- Window focus feature, press Alt+A to focus your keyboard and mouse from VRChat to VRCTextboxOSC
+- "Set Window Always on top" mode,
   This is useful for _Desktop Users_ who want to keep the textbox app window ontop of all other apps.
   
 <br>
