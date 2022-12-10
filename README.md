@@ -14,7 +14,7 @@ I has two modes:
 
 - Window focus feature, press Alt+A to focus your keyboard and mouse from VRChat to VRCTextboxOSC
 - "Set Window Always on top" mode,
-  This is useful for _Desktop Users_ who want to keep the textbox app window ontop of all other apps.
+  This is useful for Users who want to keep the textbox app window ontop of all other apps.
   
 <br>
 
