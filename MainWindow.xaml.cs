@@ -108,6 +108,10 @@ namespace VRCTextboxOSC
             {
                 oscSender.Send(new OscMessage("/chatbox/typing", false));
                 oscSender.Send(new OscMessage("/chatbox/input", TbxMain.Text, true));
+                if (CbxModes.SelectedIndex == 1)
+                {
+                    oscSender.Send(new OscMessage("/chatbox/MessageComplete", true));
+                }
                 intervalTimer.Stop();
             });
         }
@@ -145,6 +149,7 @@ namespace VRCTextboxOSC
             else
             {
                 oscSender.Send(new OscMessage("/chatbox/typing", true));
+                oscSender.Send(new OscMessage("/chatbox/MessageComplete", false));
 
                 if (CbxModes.SelectedIndex == 0)
                     intervalTimer.Start();
