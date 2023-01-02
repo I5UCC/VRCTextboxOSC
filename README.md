@@ -13,6 +13,8 @@ Features:
 - "Set Window Always on top" mode,
   This is useful for Users who want to keep the textbox app window ontop of all other apps.
 
+### Want to talk rather then type? [Try my SpeechToText implementation](https://github.com/I5UCC/VRCTextboxSTT)
+
 # [Download here](https://github.com/I5UCC/VRCTextboxOSC/releases/download/v0.1.3/VRCTextboxOSCv0.1.3.zip)
 
 # Showcase
