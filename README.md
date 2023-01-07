@@ -30,11 +30,14 @@ In Action menu, got to Options>OSC>Enable <br/>
 
 Then just run the ```VRCTextboxOSC.exe``` and you are all set! <br/>
 
-# Troubleshooting
+## OSC Troubleshoot
 
-- Write into the textbox with VRChats keyboard, then try to use this.
-- Restart both VRChat and VRCTextboxOSC
-- Delete the folder called `OSC` in `%APPDATA%\..\LocalLow\VRChat\VRChat` and restart VRChat.
+If you have problems with this program, try this to fix it:
+- Close VRChat.
+- Open 'Run' in Windows (Windows Key + R)
+- Type in `%APPDATA%\..\LocalLow\VRChat\VRChat`
+- Delete the **contents** of the OSC folder.
+- Startup VRChat again and it should work.
 
 # Requirements
 
