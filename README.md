@@ -1,4 +1,4 @@
-# <img src="https://user-images.githubusercontent.com/40323669/192174553-d4d38974-3da4-4b9b-b459-042e27a9c25b.png" width="32" height="32"> VRCTextboxOSC
+# <img src="https://user-images.githubusercontent.com/40323669/192174553-d4d38974-3da4-4b9b-b459-042e27a9c25b.png" width="32" height="32"> VRCTextboxOSC [![Github All Releases](https://img.shields.io/github/downloads/i5ucc/VRCTextboxOSC/total.svg)](https://github.com/I5UCC/VRCTextboxOSC/releases/latest)
 
 An OSC application to communicate with VRChats new "Text Chatbox" system. 
 This can directly replace the in game Keyboard for the Chat box and update it in real time! (With a bit of a delay tho) <br>
