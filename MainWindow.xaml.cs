@@ -8,6 +8,7 @@ using SharpOSC;
 using IniParser;
 using IniParser.Model;
 using Valve.VR;
+using NHotkey;
 using NHotkey.Wpf;  // hotkey window focusing feature. thanks to 753 ( https://753.network/ ) for sharing this trick :)
 using System.IO;
 
@@ -63,7 +64,7 @@ namespace VRCTextboxOSC
         
         // hotkey window focusing feature.
         // Make Windows focus on this application when a hotkey is pressed
-        private void FocusHotkey(object sender, EventArgs e)
+        private void FocusHotkey(object? sender, HotkeyEventArgs e)
         {
             Activate();
             Focus();
