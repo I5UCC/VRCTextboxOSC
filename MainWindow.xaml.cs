@@ -23,6 +23,7 @@ namespace VRCTextboxOSC
         private IniData iniData;
 
         private bool isEnabled;
+        private bool isFirstMessage;
 
         private readonly string CONFIGPATH = "config.ini";
 
@@ -39,7 +40,9 @@ namespace VRCTextboxOSC
             catch (Exception) { }
 
             isEnabled = true;
-            
+            isFirstMessage = true;
+
+
             HotkeyManager.Current.AddOrReplace("FocusHotkey", Key.A, ModifierKeys.Alt, FocusHotkey); // hotkey window focusing feature.
 
             iniParser = new();
@@ -91,7 +94,7 @@ namespace VRCTextboxOSC
         {
             if (e.Key == Key.Enter && CbxModes.SelectedIndex == 1)
             {
-                SendMessage();
+                SendMessage(true);
                 isEnabled = false;
                 TbxMain.Clear();
                 isEnabled = true;
@@ -101,14 +104,20 @@ namespace VRCTextboxOSC
                 SendMessage();
                 ClearMessage();
             }
+
+            if (TbxMain.Text.Length == 0)
+            {
+                isFirstMessage = true;
+            }
         }
 
-        private void SendMessage()
+        private void SendMessage(bool notif = false)
         {
             Dispatcher.Invoke(() =>
             {
                 oscSender.Send(new OscMessage("/chatbox/typing", false));
-                oscSender.Send(new OscMessage("/chatbox/input", TbxMain.Text, true));
+                oscSender.Send(new OscMessage("/chatbox/input", TbxMain.Text, true, notif || isFirstMessage));
+                isFirstMessage = false;
                 intervalTimer.Stop();
             });
         }
