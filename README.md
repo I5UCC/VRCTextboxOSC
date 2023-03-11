@@ -15,6 +15,8 @@ Features:
 
 ### Want to talk rather then type? [Try my SpeechToText implementation](https://github.com/I5UCC/VRCTextboxSTT)
 
+### [Discord Support Server](https://discord.gg/rqcWHje3hn)
+
 # [Download here](https://github.com/I5UCC/VRCTextboxOSC/releases/download/v0.1.3/VRCTextboxOSCv0.1.3.zip)
 
 # Showcase
